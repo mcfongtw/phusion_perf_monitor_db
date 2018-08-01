@@ -71,7 +71,7 @@ RUN apt-get update && apt-get install -y \
 #######################################################
 # Collectd Installation
 
-ARG COLLECTD_VERSION
+ARG COLLECTD_VERSION=collectd-5.6
 
 WORKDIR /usr/src
 RUN git clone https://github.com/collectd/collectd.git
@@ -119,7 +119,8 @@ RUN set -ex && \
         gpg --keyserver keyserver.pgp.com --recv-keys "$key" ; \
     done
 
-ARG INFLUXDB_VERSION
+ARG INFLUXDB_VERSION=1.6.0
+
 RUN ARCH= && dpkgArch="$(dpkg --print-architecture)" && \
     case "${dpkgArch##*-}" in \
       amd64) ARCH='amd64';; \
