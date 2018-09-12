@@ -71,7 +71,7 @@ RUN apt-get update && apt-get install -y \
 #######################################################
 # Collectd Installation
 
-ARG COLLECTD_VERSION=collectd-5.6
+ARG COLLECTD_VERSION=collectd-5.8
 
 WORKDIR /usr/src
 RUN git clone https://github.com/collectd/collectd.git
