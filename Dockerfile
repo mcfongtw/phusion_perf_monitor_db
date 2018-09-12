@@ -83,7 +83,8 @@ RUN ./configure \
     --sysconfdir=/etc/collectd \
     --without-libstatgrab \
     --without-included-ltdl \
-    --disable-static
+    --disable-static \
+    --disable-lvm
 RUN make all
 RUN make install
 RUN make clean
