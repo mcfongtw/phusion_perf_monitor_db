@@ -1,14 +1,13 @@
 version: '3'
 
 services:
-  build_ubuntu_influxdb_collectd:
+  build_ubuntu_influxdb:
     build:
       context: ./
       args:
-        COLLECTD_VERSION: "collectd-5.6"
         INFLUXDB_VERSION: "1.6.0"
     image: mcfongtw/ubuntu_perf_monitor_db:0.1
-  demo_ubuntu_influxdb_collectd:
+  demo_ubuntu_influxdb:
     image: mcfongtw/ubuntu_perf_monitor_db:0.1
     privileged: true
     environment:
@@ -21,7 +20,6 @@ services:
       - 25826:25826/udp
     volumes:
       - /proc:/mnt/proc
-      - $PWD/collectd.conf:/etc/collectd/collectd.conf:ro
       - $PWD/types.db:/usr/share/collectd/types.db:ro
       - $PWD/influxdb.conf:/etc/influxdb/influxdb.conf:ro
 
